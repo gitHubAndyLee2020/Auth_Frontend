@@ -66,6 +66,11 @@ export default function Login({ counter }) {
         setInfo({ username: '', password: '' })
     }
 
+    const handleLogOut = () => {
+        sessionStorage.setItem('passed', false)
+        setAuthCounter(authCounter + 1)
+    }
+
     return (
         <div>
             <h1>Login</h1>
@@ -77,6 +82,7 @@ export default function Login({ counter }) {
                 <button type='submit'>Submit</button>
             </form>
            { passed ? <Info /> : <p>Login Not Passed</p> }
+           <button onClick={handleLogOut}>Log Out</button>
         </div>
     )
 }
